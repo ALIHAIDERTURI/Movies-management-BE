@@ -1,14 +1,15 @@
 {
   "name": "server",
   "version": "1.0.0",
+  "description": "A backend server for Movies Management App.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ali Haider",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "axios": "^1.7.7",
     "bcrypt": "^5.1.1",
@@ -20,5 +21,9 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
+  },
+  "engines": {
+    "node": "18.x",
+    "npm": "8.x"
   }
 }
