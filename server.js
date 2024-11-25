@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 
-app.get('/', (req, res) => res.send('Movie Management API are Running!'));
+app.get('/', (req, res) => res.send('Movie Management API are Running...!'));
 
 
 app.use('/api/v1/auth', authRoutes);
