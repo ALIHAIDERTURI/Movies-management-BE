@@ -13,9 +13,10 @@ dotenv.config();
 connectDB();
 
 const app = express();
+const frontendUrl = process.env.FRONTEND_URL;
 
 const corsOptions = {
-    origin: 'http://localhost:5173', // your frontend URL
+    origin: frontendUrl,
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   };
