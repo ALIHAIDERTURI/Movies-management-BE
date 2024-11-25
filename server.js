@@ -27,7 +27,31 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 
-app.get('/', (req, res) => res.send('Movie Management API are Running...!'));
+const mongoose = require('mongoose');
+
+app.get('/', (req, res) => {
+    const dbStatus = mongoose.connection.readyState; // 1: connected, 0: disconnected, 2: connecting, 3: disconnecting
+    let statusMessage = '';
+    switch (dbStatus) {
+        case 0:
+            statusMessage = 'Database disconnected';
+            break;
+        case 1:
+            statusMessage = 'Database connected';
+            break;
+        case 2:
+            statusMessage = 'Database connecting';
+            break;
+        case 3:
+            statusMessage = 'Database disconnecting';
+            break;
+        default:
+            statusMessage = 'Unknown database status';
+    }
+    
+    res.send(`Movie Management API is Running...! Database Status: ${statusMessage}`);
+});
+
 
 
 app.use('/api/v1/auth', authRoutes);
